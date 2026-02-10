@@ -17,3 +17,5 @@ Frontend: EJS, HTML, CSS, Bootstrap
 Database:MongoDB, Mongoose
 Cloud: Cloudinary, Render
 
+## Live demo
+https://staygi.onrender.com
