@@ -214,8 +214,7 @@ app.use((req, res, next) => {
 
 
 
-
-/* -------------------- ROUTES -------------------- */
+//routes
 app.get("/", (req, res) => {
     res.redirect("/listings");
 });
@@ -225,12 +224,10 @@ app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 app.use("/",userRouter)
 
-/* -------------------- 404 HANDLER -------------------- */
 app.use((req, res, next) => {
     next(new ExpressError(404, "Page Not Found"));
 });
-
-/* -------------------- ERROR HANDLER -------------------- */
+// ERROR HANDLER
 app.use((err, req, res, next) => {
     if (err.name === "CastError") {
         err = new ExpressError(404, "Page Not Found");
@@ -240,7 +237,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render("listings/error.ejs", { message });
 });
 
-/* -------------------- SERVER -------------------- */
+//SERVER
 app.listen(port, () => {
     console.log(`app is listening on port ${port}`);
 });

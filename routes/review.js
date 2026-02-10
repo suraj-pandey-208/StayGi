@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router({ mergeParams: true }); // ✅ IMPORTANT
+const router = express.Router({ mergeParams: true }); 
 const wrapAsync = require("../utils/wrapAsync.js");
 
 const Review = require("../models/review.js");
@@ -10,7 +10,6 @@ const { isLoggedIn ,isOwner, isReviewAuthor} = require("../middleware.js");
 const Listing = require("../models/listing.js");
 
 const reviewController=require("../controllers/reviews.js")
-/* ---------------- VALIDATION ---------------- */
 
 const validateReview = (req, res, next) => {
     let { error } = reviewSchema.validate(req.body);
@@ -21,7 +20,6 @@ const validateReview = (req, res, next) => {
     next();
 };
 
-/* ---------------- ROUTES ---------------- */
 
 // CREATE REVIEW
 router.post(

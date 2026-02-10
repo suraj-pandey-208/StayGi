@@ -21,7 +21,6 @@ module.exports.signup = async (req, res, next) => {
 
             req.flash("success", "user registered successfully");
 
-            // ⭐ Fix here
             let redirectUrl = req.session.redirectUrl || "/listings";
             delete req.session.redirectUrl;
 

@@ -13,7 +13,7 @@ module.exports.isLoggedIn = (req, res, next) => {
 module.exports.saveRedirectUrl = (req, res, next) => {
     if (req.session.redirectUrl) {
         res.locals.redirectUrl = req.session.redirectUrl;
-        delete req.session.redirectUrl; // 🔥 VERY IMPORTANT
+        delete req.session.redirectUrl; 
     }
     next();
 };
@@ -34,7 +34,7 @@ module.exports.isOwner = async (req, res, next) => {
 
     req.listing = listing;
 
-    next();   // ⭐ VERY IMPORTANT
+    next();   
 };
 module.exports.isReviewAuthor = async (req, res, next) => {
     const { id, reviewId } = req.params;

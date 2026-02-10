@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// 👇 FIX: access default export
 const passportLocalMongoose = require("passport-local-mongoose").default;
 
 const userSchema = new Schema({

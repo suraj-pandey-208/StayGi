@@ -8,8 +8,7 @@ module.exports.listingSchema = Joi.object({
     country: Joi.string().required(),
     price: Joi.number().min(0).required(),
 
-    // Image comes from multer (req.file)
-    // So make it optional for edit
+   
     image: Joi.object({
       url: Joi.string().uri().allow("", null),
       filename: Joi.string().allow("", null)

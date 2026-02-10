@@ -13,8 +13,7 @@ const {storage}=require("../cloudConfig.js")
 const upload=multer({storage})
 
 
-/* -------------------- MIDDLEWARE -------------------- */
-
+//                                     MIDDLEWARES
 // ObjectId Validator
 const validateObjectId = (req, res, next) => {
     const { id } = req.params;
@@ -35,39 +34,22 @@ const validateListing = (req, res, next) => {
 };
 
 
-/* INDEX */
+// Index
 router.get("/", wrapAsync(listingController.index));
 
 
-/* NEW */
+// NEW
 router.get("/new", isLoggedIn, listingController.new);
 
 
-/* SHOW */
+// show
 router.get("/:id",
     validateObjectId,
     wrapAsync(listingController.show)
 );
 
 
-// /* CREATE */
 
-
-// router.post("/",
-//     isLoggedIn,
-//     validateListing,
-//     wrapAsync(listingController.create)
-// );
-//  router.post(upload.single("listing[image"),(req,res)=>{
-//     res.send(req.file)
-//  })
-
-// router.post("/",
-//     isLoggedIn,
-//     upload.single("listing[image]"),
-//     validateListing,
-//     wrapAsync(listingController.create)
-// );
 router.post("/",
     isLoggedIn,
     upload.single("listing[image]"),
@@ -78,9 +60,8 @@ router.post("/",
 
 
 
+//EDIT
 
-
-/* EDIT */
 router.get("/:id/edit",
     validateObjectId,
     isLoggedIn,
@@ -88,8 +69,7 @@ router.get("/:id/edit",
     wrapAsync(listingController.edit)
 );
 
-
-/* UPDATE */
+// Update
 router.put("/:id",
     validateObjectId,
     isLoggedIn,
@@ -100,8 +80,7 @@ router.put("/:id",
     wrapAsync(listingController.update)
 );
 
-
-/* DELETE */
+// DELETE
 router.delete("/:id",
     validateObjectId,
     isLoggedIn,

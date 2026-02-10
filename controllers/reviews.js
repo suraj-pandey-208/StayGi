@@ -30,7 +30,7 @@ module.exports.deleteReview=(async (req, res) => {
 
         await Listing.findByIdAndUpdate(
             id,
-            { $pull: { reviews: reviewId } } // ✅ await added
+            { $pull: { reviews: reviewId } } 
         );
 
         await Review.findByIdAndDelete(reviewId);
